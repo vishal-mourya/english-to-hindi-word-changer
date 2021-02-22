@@ -3,7 +3,7 @@
 
 ### About :
 
-- ![ScreenShot](https://github.com/vishal-mourya/english-to-hindi-word-changer/blob/main/Screenshot.png?raw=true)
+![ScreenShot](https://github.com/vishal-mourya/english-to-hindi-word-changer/blob/main/Screenshot.png?raw=true)
 
 - This is not a converter which converts english language to hindi language
 
