@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+    <p>Write something in the Text Box below to convert english to hindi</p>
+
+    <textarea rows="20" cols="100" name="comment" form="usrform" id="myInput" oninput="myFunction()" placeholder="Enter Text here">
+</textarea>
+
+
+
+    <p id="demo"></p>
+
+    <br>
+    <p> In hindi below </p>
+    <p id="result"> You Text Will Come Here </p>
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myInput").value;
+            document.getElementById("demo").innerHTML = "You wrote: " + x;
+
+            var url = 'api-to-convert-english-to-hindi';
+            // Want to know about this wonderfull API
+            // contact Me : vishal.maurya2050@gmail.com
+
+            getText(url);
+
+            async function getText(file) {
+                let myObject = await fetch(file);
+                var myText = await myObject.text();
+
+
+                var cnt = 0;
+                var res1 = '';
+                var res2 = '';
+                var res3 = '';
+                var res4 = '';
+                var res5 = '';
+
+                for (i = 0; i < myText.length; i++) {
+                    if (myText[i] == '[') cnt++;
+
+                    if (cnt == 4) {
+
+                        i += 2;
+                        while (myText[i] != '"') {
+
+                            res1 += (myText[i]);
+                            i++;
+                        }
+
+                        i += 3;
+                        while (myText[i] != '"') {
+                            res2 += (myText[i]);
+                            i++;
+                        }
+
+                        i += 3;
+
+                        while (myText[i] != '"') {
+                            res3 += (myText[i]);
+                            i++;
+                        }
+
+                        i += 3;
+
+                        while (myText[i] != '"') {
+                            res4 += (myText[i]);
+                            i++;
+                        }
+
+                        i += 3;
+
+                        while (myText[i] != '"') {
+                            res5 += (myText[i]);
+                            i++;
+                        }
+                        break;
+                    }
+                }
+
+                document.getElementById("result").innerHTML = res1;
+            }
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>
